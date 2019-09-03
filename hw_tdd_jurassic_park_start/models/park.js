@@ -1,19 +1,19 @@
 const Park = function (name, price, collection_of_dinosaurs) {
   this.name = name;
   this.price = price;
-  this.collection_of_dinosaurs = collection_of_dinosaurs
+  this.collectionOfDinosaurs = collection_of_dinosaurs
 
 }
 
-Park.prototype.add_dinosaur_to_collection = function (dinosaur) {
-  this.collection_of_dinosaurs.push(dinosaur)
+Park.prototype.addDinosaurToCollection = function (dinosaur) {
+  this.collectionOfDinosaurs.push(dinosaur)
 };
 
-Park.prototype.remove_dinosaur_from_collection = function (dinosaur) {
-  this.collection_of_dinosaurs.pop(dinosaur)
+Park.prototype.removeDinosaurFromCollection = function (dinosaur) {
+  this.collectionOfDinosaurs.pop(dinosaur)
 };
 
-Park.prototype.find_most_popular_dinosaur = function () {
+Park.prototype.findMostPopularDinosaur = function () {
   // Math.max.apply(Math, this.collection_of_dinosaurs.map(function(dinosaur) { return dinosaur.guestsAttractedPerDay; }))
   // this.collection_of_dinosaurs.sort(dinosaur.guestsAttractedPerDay)
 
@@ -27,8 +27,8 @@ Park.prototype.find_most_popular_dinosaur = function () {
 
   // Math.max(this.collection_of_dinosaurs.map)
 
-  let topDinosaur = this.collection_of_dinosaurs[0];
-  for (dinosaur of this.collection_of_dinosaurs) {
+  let topDinosaur = this.collectionOfDinosaurs[0];
+  for (dinosaur of this.collectionOfDinosaurs) {
     if (dinosaur.guestsAttractedPerDay > topDinosaur.guestsAttractedPerDay) {
       topDinosaur = dinosaur
     }
@@ -39,10 +39,10 @@ Park.prototype.find_most_popular_dinosaur = function () {
 
 // Math.max(this.collection_of_dinosaurs.dinosaur.guestsAttractedPerDay)
 
-Park.prototype.find_species = function (species) {
+Park.prototype.findSpecies = function (species) {
   // this.collection_of_dinosaurs.find(dinosaur.species === species);
   let foundSpecies = [];
-  for (dinosaur of this.collection_of_dinosaurs) {
+  for (dinosaur of this.collectionOfDinosaurs) {
     if (dinosaur.species === species) {
       foundSpecies.push(dinosaur)
     }
@@ -52,30 +52,30 @@ Park.prototype.find_species = function (species) {
 
 // function to calculate total takings for a day.
 // looking in the collection_of_dinosaurs array, find all the values of guestsAttractedPerDay. sum these, then multiply by ticket price (11.50)
-Park.prototype.total_takings_per_day = function () {
+Park.prototype.totalTakingsPerDay = function () {
   let numberOfTickets = 0;
-  for (dinosaur of this.collection_of_dinosaurs) {
+  for (dinosaur of this.collectionOfDinosaurs) {
     numberOfTickets += dinosaur.guestsAttractedPerDay;
   }
   let takings = numberOfTickets * this.price
   return takings
 };
 
-Park.prototype.total_visitors_per_day = function () {
+Park.prototype.totalVisitorsPerDay = function () {
   let totalVisitors = 0;
-  for (dinosaur of this.collection_of_dinosaurs) {
+  for (dinosaur of this.collectionOfDinosaurs) {
     totalVisitors += dinosaur.guestsAttractedPerDay;
   }
   return totalVisitors
 };
 
-Park.prototype.total_visitors_per_year = function () {
-  return this.total_visitors_per_day() * 12;
+Park.prototype.totalVisitorsPerYear = function () {
+  return this.totalVisitorsPerDay() * 12;
 
 };
 
-Park.prototype.total_revenue_for_one_year = function () {
-  return this.total_takings_per_day() * 12;
+Park.prototype.totalRevenueForOneYear = function () {
+  return this.totalTakingsPerDay() * 12;
 };
 
 module.exports = Park;
