@@ -50,10 +50,11 @@ let park;
     assert.deepStrictEqual(actual, dinosaur)
   });
 
-  // it('should be able to find all dinosaurs of a particular species', function() {
-  //
-  //
-  // });
+  it('should be able to find all dinosaurs of a particular species', function() {
+    const actual = park.find_species('diplodocus')
+  assert.deepStrictEqual(actual, [dinosaur2])
+
+  });
 
   // it('should be able to calculate the total number of visitors per day');
   //

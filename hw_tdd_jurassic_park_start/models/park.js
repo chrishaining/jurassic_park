@@ -37,19 +37,23 @@ Park.prototype.find_most_popular_dinosaur = function () {
 
   };
 
-
-
   // Math.max(this.collection_of_dinosaurs.dinosaur.guestsAttractedPerDay)
 
+  Park.prototype.find_species = function (species) {
+  // this.collection_of_dinosaurs.find(dinosaur.species === species);
+  let foundSpecies = [];
+  for (dinosaur of this.collection_of_dinosaurs) {
+    if (dinosaur.species === species) {
+      foundSpecies.push(dinosaur)
+    }
+  }
+  return foundSpecies
+};
 
 
-  //to iterate over things inside an object
-  // for (var key in movie) {
-  //   var value = movie[key];
-  //   console.log(`The ${key} is ${value}`);
-  // }
-  //
-  // var keys = Object.keys(movie)
-  // console.log(keys);
+
+
+
+
 
   module.exports = Park;
