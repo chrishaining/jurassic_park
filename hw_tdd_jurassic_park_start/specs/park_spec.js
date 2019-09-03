@@ -4,8 +4,8 @@ const Dinosaur = require('../models/dinosaur.js');
 
 describe('Park', function() {
 
-let dinosaur;
-let park;
+  let dinosaur;
+  let park;
   // arrange
   beforeEach(function () {
     dinosaur = new Dinosaur('t-rex', 'carnivore', 50);
@@ -52,14 +52,32 @@ let park;
 
   it('should be able to find all dinosaurs of a particular species', function() {
     const actual = park.find_species('diplodocus')
-  assert.deepStrictEqual(actual, [dinosaur2])
+    assert.deepStrictEqual(actual, [dinosaur2])
 
   });
 
-  // it('should be able to calculate the total number of visitors per day');
-  //
-  // it('should be able to calculate the total number of visitors per year');
-  //
-  // it('should be able to calculate total revenue for one year');
+//I think I might have made this test by mistake. it wasn't one of the tasks. but it is useful, so it stays
+  it('should be able to calculate the total takings per day', function() {
+    const actual = park.total_takings_per_day()
+    assert.strictEqual(actual, 1035)
+  });
+
+  it('should be able to calculate the total number of visitors per day', function() {
+    const actual = park.total_visitors_per_day()
+    assert.strictEqual(actual, 90)
+  });
+
+  it('should be able to calculate the total number of visitors per year', function() {
+    const actual = park.total_visitors_per_year()
+    assert.strictEqual(actual, 1080)
+  });
+
+  it('should be able to calculate total revenue for one year', function() {
+    const actual = park.total_revenue_for_one_year()
+    assert.strictEqual(actual, 12420)
+
+  });
+
+
 
 });
