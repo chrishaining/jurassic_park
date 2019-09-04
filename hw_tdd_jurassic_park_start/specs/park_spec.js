@@ -35,12 +35,12 @@ describe('Park', function() {
   it('should be able to add a dinosaur to its collection', function() {
     const collection = park.collectionOfDinosaurs
     let dinosaur3 = ('pterodactyl', 'omnivore', 5);
-    park.add_dinosaurToCollection(dinosaur3)
+    park.addDinosaurToCollection(dinosaur3)
     assert.deepStrictEqual(collection, [dinosaur, dinosaur1, dinosaur2, dinosaur3])
   });
 
   it('should be able to remove a dinosaur from its collection', function() {
-    park.remove_dinosaurFromCollection(dinosaur2)
+    park.removeDinosaurFromCollection(dinosaur2)
     const collection = park.collectionOfDinosaurs
     assert.deepStrictEqual(collection, [dinosaur, dinosaur1])
   });
@@ -75,6 +75,12 @@ describe('Park', function() {
   it('should be able to calculate total revenue for one year', function() {
     const actual = park.totalRevenueForOneYear()
     assert.strictEqual(actual, 12420)
+
+  });
+
+  it('should be able to delete a species from a dinosaur collection', function() {
+  const actual = park.removeSpecies('diplodocus')
+  assert.deepStrictEqual(actual, [dinosaur, dinosaur1] )
 
   });
 
