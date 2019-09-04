@@ -78,6 +78,10 @@ describe('Park', function() {
 
   });
 
+  it('should be able to delete a species from a dinosaur collection', function() {
+    const actual = park.removeSpecies('diplodocus')
+    assert.deepStrictEqual(actual, [dinosaur, dinosaur1] )
 
+  });
 
 });
